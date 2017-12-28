@@ -23,6 +23,7 @@ class ChatVC: UIViewController {
         self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         //tap anywhere to close slided viewcontroller
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        
     }
 
     
