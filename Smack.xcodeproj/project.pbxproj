@@ -14,6 +14,7 @@
 		FF3B26E81FF5387C00AA026B /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B26E71FF5387C00AA026B /* SignUpVC.swift */; };
 		FF3B26EA1FF53C2E00AA026B /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B26E91FF53C2E00AA026B /* CustomButton.swift */; };
 		FF3B26EC1FF53D8300AA026B /* CustomTextFIeld.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B26EB1FF53D8300AA026B /* CustomTextFIeld.swift */; };
+		FF3B26EF1FF5813700AA026B /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3B26EE1FF5813700AA026B /* AuthService.swift */; };
 		FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40AD9C1FF4295F00B53C98 /* AppDelegate.swift */; };
 		FF40ADA21FF4295F00B53C98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF40ADA01FF4295F00B53C98 /* Main.storyboard */; };
 		FF40ADA41FF4295F00B53C98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF40ADA31FF4295F00B53C98 /* Assets.xcassets */; };
@@ -33,6 +34,7 @@
 		FF3B26E71FF5387C00AA026B /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		FF3B26E91FF53C2E00AA026B /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		FF3B26EB1FF53D8300AA026B /* CustomTextFIeld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFIeld.swift; sourceTree = "<group>"; };
+		FF3B26EE1FF5813700AA026B /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		FF40AD991FF4295F00B53C98 /* Smack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Smack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF40AD9C1FF4295F00B53C98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF40ADA11FF4295F00B53C98 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -83,6 +85,14 @@
 			path = Utilities;
 			sourceTree = "<group>";
 		};
+		FF3B26ED1FF5811500AA026B /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FF3B26EE1FF5813700AA026B /* AuthService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		FF40AD901FF4295F00B53C98 = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		FF40AD9B1FF4295F00B53C98 /* Smack */ = {
 			isa = PBXGroup;
 			children = (
+				FF3B26ED1FF5811500AA026B /* Services */,
 				FF3B26E01FF46ACC00AA026B /* Utilities */,
 				FF40ADB51FF4397B00B53C98 /* Model */,
 				FF40ADB41FF4397500B53C98 /* View */,
@@ -285,6 +296,7 @@
 				FF3B26EC1FF53D8300AA026B /* CustomTextFIeld.swift in Sources */,
 				FF3B26EA1FF53C2E00AA026B /* CustomButton.swift in Sources */,
 				FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */,
+				FF3B26EF1FF5813700AA026B /* AuthService.swift in Sources */,
 				FF3B26E61FF533A400AA026B /* LoginVC.swift in Sources */,
 				FF3B26DF1FF4582700AA026B /* GradientView.swift in Sources */,
 				FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */,
