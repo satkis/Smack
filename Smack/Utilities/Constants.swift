@@ -10,4 +10,7 @@ import Foundation
 
 //Segues
 let TO_LOGIN = "toLogin"
+let TO_SIGNUP = "ToSignUp"
+let UNWIND = "unwindToChannel"
 
+let SHADOW_COLOR: CGFloat = 157.0 / 255.0
