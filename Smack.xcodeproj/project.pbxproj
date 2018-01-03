@@ -22,6 +22,7 @@
 		FF40ADB21FF42FDA00B53C98 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB11FF42FDA00B53C98 /* SWRevealViewController.m */; };
 		FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB61FF439BA00B53C98 /* ChatVC.swift */; };
 		FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB81FF439D000B53C98 /* ChannelVC.swift */; };
+		FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		FF40ADB11FF42FDA00B53C98 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		FF40ADB61FF439BA00B53C98 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		FF40ADB81FF439D000B53C98 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				FF3B26EE1FF5813700AA026B /* AuthService.swift */,
+				FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				FF3B26EA1FF53C2E00AA026B /* CustomButton.swift in Sources */,
 				FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */,
 				FF3B26EF1FF5813700AA026B /* AuthService.swift in Sources */,
+				FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */,
 				FF3B26E61FF533A400AA026B /* LoginVC.swift in Sources */,
 				FF3B26DF1FF4582700AA026B /* GradientView.swift in Sources */,
 				FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */,
