@@ -23,6 +23,8 @@
 		FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB61FF439BA00B53C98 /* ChatVC.swift */; };
 		FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB81FF439D000B53C98 /* ChannelVC.swift */; };
 		FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */; };
+		FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */; };
+		FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		FF40ADB61FF439BA00B53C98 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		FF40ADB81FF439D000B53C98 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
+		FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
+		FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +153,7 @@
 				FF40ADB81FF439D000B53C98 /* ChannelVC.swift */,
 				FF3B26E51FF533A400AA026B /* LoginVC.swift */,
 				FF3B26E71FF5387C00AA026B /* SignUpVC.swift */,
+				FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 				FF3B26DE1FF4582700AA026B /* GradientView.swift */,
 				FF3B26E91FF53C2E00AA026B /* CustomButton.swift */,
 				FF3B26EB1FF53D8300AA026B /* CustomTextFIeld.swift */,
+				FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			files = (
 				FF3B26E81FF5387C00AA026B /* SignUpVC.swift in Sources */,
 				FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */,
+				FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */,
 				FF3B26EC1FF53D8300AA026B /* CustomTextFIeld.swift in Sources */,
 				FF3B26EA1FF53C2E00AA026B /* CustomButton.swift in Sources */,
 				FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */,
@@ -304,6 +311,7 @@
 				FF3B26E61FF533A400AA026B /* LoginVC.swift in Sources */,
 				FF3B26DF1FF4582700AA026B /* GradientView.swift in Sources */,
 				FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */,
+				FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */,
 				FF40ADB21FF42FDA00B53C98 /* SWRevealViewController.m in Sources */,
 				FF3B26E21FF46AE100AA026B /* Constants.swift in Sources */,
 			);
