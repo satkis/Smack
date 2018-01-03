@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 //this spot handles login, create, register user functions
 
@@ -51,16 +52,12 @@ class AuthService {
         
         let lowerCaseEmail = email.lowercased()
         
-        let header = [
-            "Content-Type": "application/json; characterset=utf-8"
-        ]
-        
         let body: [String: Any] = [
             "email": lowerCaseEmail,
             "password": password
         ]
         
-        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseString { (response) in
+        Alamofire.request(URL_REGISTER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseString { (response) in
             
             if response.result.error == nil {
                 completion(true)
@@ -73,6 +70,49 @@ class AuthService {
         
     }
     
+    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+        
+        let lowerCaseEmail = email.lowercased()
+        
+        let body: [String: Any] = [
+            "email": lowerCaseEmail,
+            "password": password
+        ]
+        
+        //.responseJSON is used in this case because API(mac-chat-api) is built to return JSON. Usualy .responseString is used.
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+        
+////PARSING JSON OLDFASHIONED////
+            if response.result.error == nil {
+               // String is a key - e.g. "password", but password value can be integer, String, etc - so, use Any>
+                if let json = response.result.value as? Dictionary<String, Any> {
+                    if let email = json["user"] as? String {
+                        self.userEmail = email
+                    }
+                    if let token = json["token"] as? String {
+                        self.authToken = token
+                    }
+                }
+              
+////PARSING JSON USING SWIFTYJSON////
+//                guard let data = response.data else { return }
+//                do {
+//                    let json = JSON(data: data)
+//                }
+//                self.userEmail = json["user"].stringValue
+//                self.authToken = json["token"].stringValue
+////end of SWIFTY JSON
+                
+                self.isLoggedIn = true
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+        
+        
+    }
     
     
     
