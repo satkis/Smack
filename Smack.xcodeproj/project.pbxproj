@@ -25,6 +25,7 @@
 		FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */; };
 		FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */; };
 		FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */; };
+		FF7A33D11FFEDF90009A0F4E /* CircleImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33D01FFEDF90009A0F4E /* CircleImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
+		FF7A33D01FFEDF90009A0F4E /* CircleImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +167,7 @@
 				FF3B26E91FF53C2E00AA026B /* CustomButton.swift */,
 				FF3B26EB1FF53D8300AA026B /* CustomTextFIeld.swift */,
 				FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */,
+				FF7A33D01FFEDF90009A0F4E /* CircleImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */,
 				FF40ADB21FF42FDA00B53C98 /* SWRevealViewController.m in Sources */,
 				FF3B26E21FF46AE100AA026B /* Constants.swift in Sources */,
+				FF7A33D11FFEDF90009A0F4E /* CircleImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

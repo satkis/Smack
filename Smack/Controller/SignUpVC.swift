@@ -15,20 +15,29 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var profileImg: UIImageView!
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
     // Variables
     
     var avatarName = "profileDefault"
     var avatarColor = "[0.5, 0.5, 0.5, 1]"
+    var bgColor : UIColor?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupView()
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         if UserDataService.instance.avatarName != "" {
             profileImg.image = UIImage(named: UserDataService.instance.avatarName)
             avatarName = UserDataService.instance.avatarName
+            
+            if avatarName.contains("light") && bgColor == nil {
+                profileImg.backgroundColor = UIColor.lightGray
+            }
         }
         
     }
@@ -40,6 +49,9 @@ class SignUpVC: UIViewController {
     
     
     @IBAction func createAcctPressed(_ sender: Any) {
+        spinner.isHidden = false
+        spinner.startAnimating()
+        
         guard let email = emailTxt.text, emailTxt.text != "" else { return }
         guard let name = usernameTxt.text, usernameTxt.text != "" else { return }
         guard let pass = passwordTxt.text, passwordTxt.text != "" else { return }
@@ -50,8 +62,12 @@ class SignUpVC: UIViewController {
                     if success {
                         AuthService.instance.createUser(name: name, email: email, avatarName: self.avatarName, avatarColor: self.avatarColor, completion: { (success) in
                             if success {
+                                self.spinner.isHidden = true
+                                self.spinner.stopAnimating()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
-                                print(UserDataService.instance.name, UserDataService.instance.avatarName)
+                                
+                                //this notif broadcasts that user registered and due to this unique user's info can be shown.
+                                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
                         })
                     }
@@ -65,8 +81,32 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func pickBgCollorPressed(_ sender: Any) {
+        let r = CGFloat(arc4random_uniform(255)) / 255
+        let g = CGFloat(arc4random_uniform(255)) / 255
+        let b = CGFloat(arc4random_uniform(255)) / 255
         
+        bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        UIView.animate(withDuration: 0.2) {
+            self.profileImg.backgroundColor = self.bgColor
+        }
     }
     
+    func setupView() {
+        spinner.isHidden = true
+        
+        usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceHolder])
+        
+        emailTxt.attributedPlaceholder = NSAttributedString(string: "e-mail", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceHolder])
+        
+        passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceHolder])
+        
+        //dismiss keyboard when tapped anywhere out of keyboard
+        let tap = UITapGestureRecognizer(target: self, action: #selector(SignUpVC.handleTap))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
     
 }

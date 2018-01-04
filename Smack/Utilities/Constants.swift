@@ -31,7 +31,10 @@ let URL_USER_ADD = "\(BASE_URL)user/add"
 //Headers
 let HEADER = ["Content-Type": "application/json; characterset=utf-8"]
 
-
+// Notification Constants
+let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataCanged")
 
 //Colors
 let SHADOW_COLOR: CGFloat = 157.0 / 255.0
+let smackPurplePlaceHolder = #colorLiteral(red: 0.09705946181, green: 0.3474663628, blue: 0.8888075087, alpha: 0.6231003853)
+

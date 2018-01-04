@@ -116,7 +116,7 @@
                                 <rect key="frame" x="268" y="107.5" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FUZ-nU-Uib">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="FUZ-nU-Uib" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="20" y="572" width="75" height="75"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="2aR-Xc-KNm"/>
@@ -317,6 +317,8 @@
                         <viewLayoutGuide key="safeArea" id="o0N-DZ-ekP"/>
                     </view>
                     <connections>
+                        <outlet property="passwordTxt" destination="dYz-8H-wFs" id="608-DE-ecB"/>
+                        <outlet property="usernameTxt" destination="d6h-B9-F3W" id="1JQ-Xl-X5O"/>
                         <segue destination="zix-Sj-Ua1" kind="show" identifier="ToSignUp" id="GvM-FX-ePo"/>
                     </connections>
                 </viewController>
@@ -415,7 +417,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="brv-Or-3LZ">
                                 <rect key="frame" x="109.5" y="391.5" width="155" height="129"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="VDC-yb-psM">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileDefault" translatesAutoresizingMaskIntoConstraints="NO" id="VDC-yb-psM" customClass="CircleImage" customModule="Smack" customModuleProvider="target">
                                         <rect key="frame" x="40" y="0.0" width="75" height="75"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="75" id="f4d-5B-dEo"/>
@@ -441,9 +443,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SkM-2G-Pmp" customClass="CustomButton" customModule="Smack" customModuleProvider="target">
-                                <rect key="frame" x="118" y="36" width="135" height="34"/>
+                                <rect key="frame" x="120" y="560.5" width="135" height="34"/>
                                 <color key="backgroundColor" red="0.1764705882" green="0.65825195309999995" blue="0.91658528650000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="jNg-Hu-RYb"/>
+                                    <constraint firstAttribute="height" constant="34" id="qEN-Ln-Ss6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
                                 <state key="normal" title="Create Account">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -451,12 +457,17 @@
                                     <action selector="createAcctPressed:" destination="zix-Sj-Ua1" eventType="touchUpInside" id="GP0-HV-gBT"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="yfP-37-Pw5">
+                                <rect key="frame" x="177.5" y="273.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="yfP-37-Pw5" firstAttribute="centerX" secondItem="TE3-9V-Z5e" secondAttribute="centerX" id="7DK-VM-jJK"/>
+                            <constraint firstItem="yfP-37-Pw5" firstAttribute="centerY" secondItem="TE3-9V-Z5e" secondAttribute="centerY" constant="-50" id="B3U-4S-YcA"/>
+                            <constraint firstItem="SkM-2G-Pmp" firstAttribute="centerX" secondItem="TE3-9V-Z5e" secondAttribute="centerX" id="C7V-ve-IJe"/>
                             <constraint firstItem="BkU-o3-Etl" firstAttribute="top" secondItem="CVu-ql-AsQ" secondAttribute="bottom" constant="40" id="Fby-Fe-DvB"/>
-                            <constraint firstItem="CVu-ql-AsQ" firstAttribute="top" secondItem="SkM-2G-Pmp" secondAttribute="bottom" constant="42" id="NKC-8e-BY5"/>
-                            <constraint firstItem="WaT-46-6r0" firstAttribute="leading" secondItem="SkM-2G-Pmp" secondAttribute="trailing" constant="67" id="PCH-Gg-jLR"/>
+                            <constraint firstItem="SkM-2G-Pmp" firstAttribute="top" secondItem="brv-Or-3LZ" secondAttribute="bottom" constant="40" id="J4G-0O-2xJ"/>
                             <constraint firstItem="t7G-AY-OQG" firstAttribute="trailing" secondItem="WaT-46-6r0" secondAttribute="trailing" constant="20" id="Y3G-4c-LAJ"/>
                             <constraint firstItem="brv-Or-3LZ" firstAttribute="top" secondItem="BkU-o3-Etl" secondAttribute="bottom" constant="80" id="b4z-73-IyU"/>
                             <constraint firstItem="CVu-ql-AsQ" firstAttribute="top" secondItem="t7G-AY-OQG" secondAttribute="top" constant="92" id="cQH-El-9Jd"/>
@@ -471,6 +482,7 @@
                         <outlet property="emailTxt" destination="AQX-Lb-tlw" id="Gde-VK-jOc"/>
                         <outlet property="passwordTxt" destination="zZ2-qa-pKQ" id="oiV-3g-zWN"/>
                         <outlet property="profileImg" destination="VDC-yb-psM" id="J44-p9-dcp"/>
+                        <outlet property="spinner" destination="yfP-37-Pw5" id="97S-1c-73S"/>
                         <outlet property="usernameTxt" destination="1AF-UI-A6m" id="bHy-6K-Nnu"/>
                         <segue destination="R2x-wh-sCa" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="9cW-Ts-eQF"/>
                         <segue destination="5VA-sJ-znN" kind="show" identifier="toAvatarPicker" id="VYu-hB-MRU"/>

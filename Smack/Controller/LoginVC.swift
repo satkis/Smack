@@ -10,9 +10,13 @@ import UIKit
 
 class LoginVC: UIViewController {
 
+    @IBOutlet weak var usernameTxt: UITextField!
+    @IBOutlet weak var passwordTxt: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setupView()
         
     }
 
@@ -24,6 +28,13 @@ class LoginVC: UIViewController {
     @IBAction func signUpPressed(_ sender: Any) {
         performSegue(withIdentifier: TO_SIGNUP, sender: nil)
     }
+    
+    func setupView() {
+        usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceHolder])
+
+        
+        passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: smackPurplePlaceHolder])
+}
     
     
     }
