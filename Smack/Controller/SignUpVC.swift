@@ -25,6 +25,13 @@ class SignUpVC: UIViewController {
 
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        if UserDataService.instance.avatarName != "" {
+            profileImg.image = UIImage(named: UserDataService.instance.avatarName)
+            avatarName = UserDataService.instance.avatarName
+        }
+        
+    }
     
    
     @IBAction func signUpExit(_ sender: Any) {
