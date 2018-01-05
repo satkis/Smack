@@ -86,6 +86,9 @@ class SignUpVC: UIViewController {
         let b = CGFloat(arc4random_uniform(255)) / 255
         
         bgColor = UIColor(red: r, green: g, blue: b, alpha: 1)
+        //this is needed to push color values to mlab DB, so I could later take them and generate avatar color on ChannelVC
+        //        DB::: "avatarColor": "[0.509803921568627, 0.666666666666667, 0.341176470588235, 1]",
+        avatarColor = "[\(r), \(g), \(b), 1]"
         UIView.animate(withDuration: 0.2) {
             self.profileImg.backgroundColor = self.bgColor
         }
