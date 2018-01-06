@@ -235,6 +235,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginPressed:" destination="tuI-uL-AQD" eventType="touchUpInside" id="1Qp-br-khQ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vXD-uv-HL1" customClass="CustomButton" customModule="Smack" customModuleProvider="target">
                                 <rect key="frame" x="75" y="355" width="225" height="20"/>
@@ -300,14 +303,19 @@
                                     <action selector="closePressed:" destination="tuI-uL-AQD" eventType="touchUpInside" id="hjs-tQ-r49"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jdK-FG-6Rn">
+                                <rect key="frame" x="177.5" y="273.5" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f6h-bQ-bgL" firstAttribute="centerX" secondItem="LO1-Ti-Fve" secondAttribute="centerX" id="2bD-FY-MXy"/>
                             <constraint firstItem="PeF-m9-MMo" firstAttribute="centerX" secondItem="LO1-Ti-Fve" secondAttribute="centerX" id="BEn-FO-MBr"/>
                             <constraint firstItem="Wih-ju-Uas" firstAttribute="top" secondItem="o0N-DZ-ekP" secondAttribute="top" constant="10" id="Bwv-32-HJS"/>
+                            <constraint firstItem="jdK-FG-6Rn" firstAttribute="centerY" secondItem="LO1-Ti-Fve" secondAttribute="centerY" constant="-50" id="Et2-cm-wqt"/>
                             <constraint firstItem="o0N-DZ-ekP" firstAttribute="trailing" secondItem="Wih-ju-Uas" secondAttribute="trailing" constant="20" id="Kx5-9k-CBq"/>
                             <constraint firstItem="f6h-bQ-bgL" firstAttribute="centerX" secondItem="LO1-Ti-Fve" secondAttribute="centerX" id="c2b-aj-ZzE"/>
+                            <constraint firstItem="jdK-FG-6Rn" firstAttribute="centerX" secondItem="LO1-Ti-Fve" secondAttribute="centerX" id="efR-PW-paC"/>
                             <constraint firstItem="O5g-8w-1cY" firstAttribute="top" secondItem="PeF-m9-MMo" secondAttribute="bottom" constant="35" id="fJe-sJ-LME"/>
                             <constraint firstItem="PeF-m9-MMo" firstAttribute="top" secondItem="o0N-DZ-ekP" secondAttribute="top" constant="100" id="jye-i7-A0N"/>
                             <constraint firstItem="O5g-8w-1cY" firstAttribute="centerX" secondItem="LO1-Ti-Fve" secondAttribute="centerX" id="lXA-yC-6Vr"/>
@@ -319,6 +327,7 @@
                     </view>
                     <connections>
                         <outlet property="passwordTxt" destination="dYz-8H-wFs" id="608-DE-ecB"/>
+                        <outlet property="spinner" destination="jdK-FG-6Rn" id="8pX-ku-Tfl"/>
                         <outlet property="usernameTxt" destination="d6h-B9-F3W" id="1JQ-Xl-X5O"/>
                         <segue destination="zix-Sj-Ua1" kind="show" identifier="ToSignUp" id="GvM-FX-ePo"/>
                     </connections>

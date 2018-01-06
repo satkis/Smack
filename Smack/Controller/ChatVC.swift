@@ -24,6 +24,12 @@ class ChatVC: UIViewController {
         //tap anywhere to close slided viewcontroller
         self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
         
+        if AuthService.instance.isLoggedIn {
+            AuthService.instance.fingUserByEmail(completion: { (success) in
+                NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
+            })
+        }
+        
     }
 
     
