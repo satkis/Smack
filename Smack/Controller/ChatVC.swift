@@ -14,10 +14,13 @@ class ChatVC: UIViewController {
     @IBOutlet weak var menuBtn: UIButton!
     
     @IBOutlet weak var channelNameLbl: UILabel!
+    @IBOutlet weak var messageTxtBox: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.bindToKeyboard()
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ChatVC.handleTap))
+        view.addGestureRecognizer(tap)
         menuBtn.addTarget(self.revealViewController(), action:
             //revealToggle to slide out for anotherViewController. like for CityBee app when car selected
             #selector(SWRevealViewController.revealToggle(_:)), for: .touchUpInside)
@@ -47,20 +50,66 @@ class ChatVC: UIViewController {
         updateWithChannel()
     }
     
+    @objc func handleTap() {
+        view.endEditing(true)
+    }
+    
     func updateWithChannel() {
         print("updateWithChannel::::::::")
         // writing - ?? "" - in case selected channel name not found, hence, insert empty
         let channelName = MessageService.instance.selectedChannel?.channelTitle ?? ""
         channelNameLbl.text = "#\(channelName)"
           print("PASIKEITE CHANNEL NAME IN ChatVC")
+        getMessages()
+        print("getMessages TRIGERINOSI INSIDE updateWithChannel func:::::::::::")
     }
     
     func onLoginGetMessages() {
         MessageService.instance.findAllChannel { (success) in
             if success {
-              //  do stuff with channels
+                if MessageService.instance.channels.count > 0 {
+                    MessageService.instance.selectedChannel = MessageService.instance.channels[0]
+                } else {
+                    self.channelNameLbl.text = "No channels yet! Crate the first to begin!"
+                }
             }
         }
     }
+    
+    func getMessages() {
+        guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+        MessageService.instance.findAllMessageForChannel(channelId: channelId) { (success) in
+            if success {
+                
+            }
+        }
+    }
+    
+    
+    @IBAction func sendMessagePressed(_ sender: Any) {
+        if AuthService.instance.isLoggedIn {
+            guard let channelId = MessageService.instance.selectedChannel?.id else { return }
+            guard let message = messageTxtBox.text else { return }
+            
+            SocketService.instance.addMessage(messageBody: message, userId: UserDataService.instance.id, channelId: channelId, completion: { (success) in
+                if success {
+                    self.messageTxtBox.text = ""
+                    self.messageTxtBox.resignFirstResponder()
+                }
+            })
+            
+        } else {
+            
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }

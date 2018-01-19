@@ -26,6 +26,8 @@
 		FF40ADB71FF439BA00B53C98 /* ChatVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB61FF439BA00B53C98 /* ChatVC.swift */; };
 		FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF40ADB81FF439D000B53C98 /* ChannelVC.swift */; };
 		FF78232A20018C9B00348CDF /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78232920018C9B00348CDF /* ChannelCell.swift */; };
+		FF79FE582012A1C1005514E0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE572012A1C0005514E0 /* Message.swift */; };
+		FF79FE5A2012B427005514E0 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE592012B427005514E0 /* KeyboardBoundView.swift */; };
 		FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */; };
 		FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */; };
 		FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */; };
@@ -62,6 +64,8 @@
 		FF40ADB61FF439BA00B53C98 /* ChatVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatVC.swift; sourceTree = "<group>"; };
 		FF40ADB81FF439D000B53C98 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
 		FF78232920018C9B00348CDF /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
+		FF79FE572012A1C0005514E0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		FF79FE592012B427005514E0 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
 		FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 				FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */,
 				FF7A33D01FFEDF90009A0F4E /* CircleImage.swift */,
 				FF78232920018C9B00348CDF /* ChannelCell.swift */,
+				FF79FE592012B427005514E0 /* KeyboardBoundView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				FF96B16D2000DD0800787FDA /* Channel.swift */,
+				FF79FE572012A1C0005514E0 /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			files = (
 				FF3B26E81FF5387C00AA026B /* SignUpVC.swift in Sources */,
 				FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */,
+				FF79FE5A2012B427005514E0 /* KeyboardBoundView.swift in Sources */,
 				FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */,
 				FF3B26EC1FF53D8300AA026B /* CustomTextFIeld.swift in Sources */,
 				FF7A33D41FFF0714009A0F4E /* ProfileVC.swift in Sources */,
@@ -366,6 +373,7 @@
 				FF3208422006B29400DA754B /* SocketService.swift in Sources */,
 				FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */,
 				FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */,
+				FF79FE582012A1C1005514E0 /* Message.swift in Sources */,
 				FF32083F20022CD800DA754B /* AddChannelVC.swift in Sources */,
 				FF40ADB21FF42FDA00B53C98 /* SWRevealViewController.m in Sources */,
 				FF3B26E21FF46AE100AA026B /* Constants.swift in Sources */,

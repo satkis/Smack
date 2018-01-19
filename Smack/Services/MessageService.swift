@@ -19,6 +19,7 @@ class MessageService {
     
     var channels = [Channel]()
     var selectedChannel : Channel?
+    var messages = [Message]()
     
     func findAllChannel(completion: @escaping CompletionHandler) {
         
@@ -37,6 +38,7 @@ class MessageService {
                         let channelDescription = item["description"].stringValue
                         let id = item["_id"].stringValue
                         let channel = Channel(channelTitle: name, channelDescription: channelDescription, id: id)
+                        
                         self.channels.append(channel)
                     }
                     NotificationCenter.default.post(name: NOTIF_CHANNELS_LOADED, object: nil)
@@ -77,6 +79,43 @@ class MessageService {
 //                debugPrint("komentaras \(response.result.error as Any)")
 //            }
         }
+    }
+    
+    func findAllMessageForChannel(channelId: String, completion: @escaping CompletionHandler) {
+        Alamofire.request("\(URL_GET_MESSAGES)/\(channelId)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+            if response.result.error == nil {
+               self.clearMessages()
+                //parse out properties oj a message from JSON, then crete new message and append to array of messages
+                guard let data = response.data else { return }
+                do {
+                    let json = try JSON(data: data).array
+                    print("DZEISON OF A MESSAGE \(try JSON(data: data).array as Any)")
+                    for item in json! {
+                        let messageBody = item["messageBody"].stringValue
+                        let id = item["_id"].stringValue
+                        let channelId = item["channelId"].stringValue
+                        let username = item["userName"].stringValue
+                        let userAvatar = item["userAvatar"].stringValue
+                        let userAvatarColor = item["userAvatarColor"].stringValue
+                        let timeStamp = item["timeStamp"].stringValue
+                        
+                        let messagee = Message(message: messageBody, username: username, channelId: channelId, userAvatar: userAvatar, userAvatarColor: userAvatarColor, id: id, timeStamp: timeStamp)
+                        self.messages.append(messagee)
+                    }
+                    completion(true)
+                    print(self.messages)
+                } catch {
+                    print("KAS NEGERAI????")
+                }
+            } else {
+                debugPrint("NEISEJO ISTRAUKT MESSAGE:::::::: \(response.result.error as Any)")
+                completion(true)
+            }
+        }
+    }
+    
+    func clearMessages() {
+        messages.removeAll()
     }
     
     func clearChannels() {
