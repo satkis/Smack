@@ -139,8 +139,6 @@ open class SocketManager : NSObject, SocketManagerSpec, SocketParsable, SocketDa
             self._config.insert(.secure(true))
         }
 
-        self._config.insert(.path("/socket.io/"), replacing: false)
-
         super.init()
 
         setConfigs(_config)
@@ -205,7 +203,7 @@ open class SocketManager : NSObject, SocketManagerSpec, SocketParsable, SocketDa
             return
         }
 
-        engine?.send("0\(socket.nsp)", withData: [])
+        engine?.send("0\(socket.nsp),", withData: [])
     }
 
     /// Called when the manager has disconnected from socket.io.
@@ -233,10 +231,8 @@ open class SocketManager : NSObject, SocketManagerSpec, SocketParsable, SocketDa
     ///
     /// - parameter socket: The socket to disconnect.
     open func disconnectSocket(_ socket: SocketIOClient) {
-        // Make sure we remove socket from nsps
-        nsps.removeValue(forKey: socket.nsp)
+        engine?.send("1\(socket.nsp),", withData: [])
 
-        engine?.send("1\(socket.nsp)", withData: [])
         socket.didDisconnect(reason: "Namespace leave")
     }
 
@@ -417,11 +413,24 @@ open class SocketManager : NSObject, SocketManagerSpec, SocketParsable, SocketDa
 
     /// Tries to reconnect to the server.
     ///
-    /// This will cause a `disconnect` event to be emitted, as well as an `reconnectAttempt` event.
+    /// This will cause a `SocketClientEvent.reconnect` event to be emitted, as well as
+    /// `SocketClientEvent.reconnectAttempt` events.
     open func reconnect() {
         guard !reconnecting else { return }
 
         engine?.disconnect(reason: "manual reconnect")
+    }
+
+    /// Removes the socket from the manager's control. One of the disconnect methods should be called before calling this
+    /// method.
+    ///
+    /// After calling this method the socket should no longer be considered usable.
+    ///
+    /// - parameter socket: The socket to remove.
+    /// - returns: The socket removed, if it was owned by the manager.
+    @discardableResult
+    open func removeSocket(_ socket: SocketIOClient) -> SocketIOClient? {
+        return nsps.removeValue(forKey: socket.nsp)
     }
 
     private func tryReconnect(reason: String) {

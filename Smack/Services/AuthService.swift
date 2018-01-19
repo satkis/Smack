@@ -24,6 +24,7 @@ class AuthService {
     
     var isLoggedIn: Bool {
         get {
+            print(LOGGED_IN_KEY)
             return defaults.bool(forKey: LOGGED_IN_KEY)
         }
         set {
@@ -64,9 +65,10 @@ class AuthService {
             
             if response.result.error == nil {
                 completion(true)
+                print("register user doneeee::::::::")
             } else {
                 completion(false)
-                debugPrint(response.result.error as Any)
+                debugPrint("nepaejo uzregint::::::::::::::: \(response.result.error as Any)")
                 
             }
         }
@@ -93,11 +95,12 @@ class AuthService {
                 self.authToken = json["token"].stringValue
                 self.isLoggedIn = true
                 completion(true)
+                    print("login User successss:::::::")
                 }
                 break
             case .failure(_):
                 completion(false)
-                debugPrint(response.result.error as Any)
+                debugPrint("KAZKAS NEGRAI SU LOGINIMUSI:::::::::::::: \(response.result.error as Any)")
             break
         }
             
@@ -142,7 +145,7 @@ class AuthService {
             "avatarName": avatarName,
             "avatarColor": avatarColor
         ]
-        
+       
         Alamofire.request(URL_USER_ADD, method: .post, parameters: body, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             
             switch response.result {
@@ -150,11 +153,12 @@ class AuthService {
                 if let data = response.data {
                     self.setUserInfo(data: data)
                     completion(true)
+                    print("PRILOGINTAS ir sukurtas USERIS::::::")
                 }
                 break
             case .failure(_):
                 completion(false)
-                debugPrint(response.result.error as Any)
+                debugPrint("NEPAEJO SUKURT USERIO:::::: \(response.result.error as Any)")
                 break
             }
         }
@@ -162,17 +166,18 @@ class AuthService {
     
     func fingUserByEmail(completion: @escaping CompletionHandler) {
         
-        Alamofire.request("\(URL_FIND_USER_BY_EMAIL)/\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
+        Alamofire.request("\(URL_FIND_USER_BY_EMAIL)\(userEmail)", method: .get, parameters: nil, encoding: JSONEncoding.default, headers: BEARER_HEADER).responseJSON { (response) in
             switch response.result {
             case .success(_):
                 if let data = response.data {
                     self.setUserInfo(data: data)
                     completion(true)
+                    print("PAVYKO SURAST USER BY EMAIL!!!!::::::")
                 }
                 break
             case .failure(_):
                 completion(false)
-                debugPrint(response.result.error as Any)
+                debugPrint("NEPAEJO SURAST USERIO by EMAIL:::::: \(response.result.error as Any)")
                 break
             }
         
