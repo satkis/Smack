@@ -28,6 +28,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         print("buuumm:::::::")
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         print("buuumm:::::::::::::")
+        NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         SocketService.instance.getChannel { (success) in
             if success {
                 print("APPENDINA in CHANNELVC")
@@ -41,9 +42,14 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         setupUserInfo()
     }
     
+    
     //in this function define what to do when user logs in or registers
    @objc func userDataDidChange(_ notif: Notification) {
     setupUserInfo()
+    }
+    
+    @objc func channelsLoaded(_ notif: Notification) {
+        tableView.reloadData()
     }
     
     func setupUserInfo() {
@@ -57,7 +63,7 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.clear
             
-            //tableView.reloadData()
+            tableView.reloadData()
         }
     }
 
@@ -104,5 +110,22 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return MessageService.instance.channels.count
     }
+    
+    //when specific row(channel) selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //create a channel based on which channel is selected/touched by user
+        let channel = MessageService.instance.channels[indexPath.row]
+        //set that channel to the selected channel
+        MessageService.instance.selectedChannel = channel
+        //send notif that that specific channel is selected
+        NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
+        
+        self.revealViewController().revealToggle(animated: true)
+    }
+    
+    
+    
+    
+    
     
 }

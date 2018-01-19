@@ -41,11 +41,10 @@ let BEARER_HEADER = [
 ]
 
 
-
-
-
 // Notification Constants
 let NOTIF_USER_DATA_DID_CHANGE = Notification.Name("notifUserDataCanged")
+let NOTIF_CHANNELS_LOADED = Notification.Name("channelsLoaded")
+let NOTIF_CHANNEL_SELECTED = Notification.Name("channelSelected")
 
 //Colors
 let SHADOW_COLOR: CGFloat = 157.0 / 255.0
