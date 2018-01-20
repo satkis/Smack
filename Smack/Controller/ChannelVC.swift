@@ -36,6 +36,15 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             print("apendino???:::::::")
             }
         }
+        
+        SocketService.instance.getMessage { (newMessage) in
+            //if true, then there are unred messages in other channels (different from which we are in now)
+            if newMessage.channelId != MessageService.instance.selectedChannel?.id && AuthService.instance.isLoggedIn {
+                MessageService.instance.unreadChannels.append(newMessage.channelId)
+                self.tableView.reloadData()
+            }
+        }
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -117,6 +126,15 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         let channel = MessageService.instance.channels[indexPath.row]
         //set that channel to the selected channel
         MessageService.instance.selectedChannel = channel
+        
+        //related to marking channel bold when there are unread messages
+        if MessageService.instance.unreadChannels.count > 0 {
+            MessageService.instance.unreadChannels = MessageService.instance.unreadChannels.filter{$0 != channel.id}
+        }
+        let indexx = IndexPath(row: indexPath.row, section: 0)
+        tableView.reloadRows(at: [indexx], with: .none)
+        tableView.selectRow(at: indexx, animated: false, scrollPosition: .none)
+        
         //send notif that that specific channel is selected
         NotificationCenter.default.post(name: NOTIF_CHANNEL_SELECTED, object: nil)
         

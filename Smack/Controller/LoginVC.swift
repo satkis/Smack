@@ -33,6 +33,7 @@ class LoginVC: UIViewController {
     
     
     @IBAction func loginPressed(_ sender: Any) {
+        if usernameTxt.text != "" || passwordTxt.text != "" {
         spinner.isHidden = false
         spinner.startAnimating()
         
@@ -47,10 +48,12 @@ class LoginVC: UIViewController {
                     self.dismiss(animated: true, completion: nil)
                 })
             }
+            }
+        } else {
+            spinner.isHidden = true
         }
         
-    
-    
+        
     }
     
     func setupView() {

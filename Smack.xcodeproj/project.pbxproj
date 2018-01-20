@@ -28,6 +28,8 @@
 		FF78232A20018C9B00348CDF /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF78232920018C9B00348CDF /* ChannelCell.swift */; };
 		FF79FE582012A1C1005514E0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE572012A1C0005514E0 /* Message.swift */; };
 		FF79FE5A2012B427005514E0 /* KeyboardBoundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE592012B427005514E0 /* KeyboardBoundView.swift */; };
+		FF79FE5C2012C1F1005514E0 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE5B2012C1F1005514E0 /* MessageCell.swift */; };
+		FF79FE5E20135A0D005514E0 /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF79FE5D20135A0D005514E0 /* BounceButton.swift */; };
 		FF7A33CB1FFD6A28009A0F4E /* UserDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */; };
 		FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */; };
 		FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */; };
@@ -66,6 +68,8 @@
 		FF78232920018C9B00348CDF /* ChannelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		FF79FE572012A1C0005514E0 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		FF79FE592012B427005514E0 /* KeyboardBoundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardBoundView.swift; sourceTree = "<group>"; };
+		FF79FE5B2012C1F1005514E0 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
+		FF79FE5D20135A0D005514E0 /* BounceButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		FF7A33CA1FFD6A28009A0F4E /* UserDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDataService.swift; sourceTree = "<group>"; };
 		FF7A33CC1FFD92B7009A0F4E /* AvatarPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPickerVC.swift; sourceTree = "<group>"; };
 		FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarCell.swift; sourceTree = "<group>"; };
@@ -190,11 +194,13 @@
 			children = (
 				FF3B26DE1FF4582700AA026B /* GradientView.swift */,
 				FF3B26E91FF53C2E00AA026B /* CustomButton.swift */,
+				FF79FE5D20135A0D005514E0 /* BounceButton.swift */,
 				FF3B26EB1FF53D8300AA026B /* CustomTextFIeld.swift */,
 				FF7A33CE1FFD9675009A0F4E /* AvatarCell.swift */,
 				FF7A33D01FFEDF90009A0F4E /* CircleImage.swift */,
 				FF78232920018C9B00348CDF /* ChannelCell.swift */,
 				FF79FE592012B427005514E0 /* KeyboardBoundView.swift */,
+				FF79FE5B2012C1F1005514E0 /* MessageCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF3B26E81FF5387C00AA026B /* SignUpVC.swift in Sources */,
+				FF79FE5E20135A0D005514E0 /* BounceButton.swift in Sources */,
 				FF40ADB91FF439D000B53C98 /* ChannelVC.swift in Sources */,
 				FF79FE5A2012B427005514E0 /* KeyboardBoundView.swift in Sources */,
 				FF7A33CF1FFD9675009A0F4E /* AvatarCell.swift in Sources */,
@@ -372,6 +379,7 @@
 				FF3B26DF1FF4582700AA026B /* GradientView.swift in Sources */,
 				FF3208422006B29400DA754B /* SocketService.swift in Sources */,
 				FF40AD9D1FF4295F00B53C98 /* AppDelegate.swift in Sources */,
+				FF79FE5C2012C1F1005514E0 /* MessageCell.swift in Sources */,
 				FF7A33CD1FFD92B7009A0F4E /* AvatarPickerVC.swift in Sources */,
 				FF79FE582012A1C1005514E0 /* Message.swift in Sources */,
 				FF32083F20022CD800DA754B /* AddChannelVC.swift in Sources */,
